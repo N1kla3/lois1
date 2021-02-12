@@ -58,3 +58,13 @@ TEST(NegativeValidation, four)
 {
     EXPECT_FALSE(Validate("(A-|B)"));
 }
+
+TEST(ValidationTest, empty)
+{
+    EXPECT_FALSE(Validate(""));
+}
+
+TEST(ValidationTest, bracket)
+{
+    EXPECT_FALSE(Validate(")"));
+}
