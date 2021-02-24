@@ -26,6 +26,7 @@ bool checkLeftBrace(char prev) noexcept;
 bool checkRightBrace(char prev) noexcept;
 bool checkLetter(char prev) noexcept;
 
+
 bool Validate(const std::string& str) noexcept
 {
     if (str.empty()) return false;
@@ -98,6 +99,36 @@ bool Validate(const std::string& str) noexcept
     }
 
     return left == right;
+}
+
+/** @brief formats & in \/ and | in /\ */
+std::string reformatInput(const std::string& str) noexcept
+{
+	std::string result{};
+	bool skip = false;
+	for (const auto ch : str)
+	{
+		if (skip)
+		{
+			skip = false;
+			continue;
+		}
+		if (ch == '/')
+		{
+			result.push_back('&');
+			skip = true;
+		}
+		else if (ch == '\\')
+		{
+			result.push_back('|');
+			skip = true;
+		}
+		else
+		{
+			result.push_back(ch);
+		}
+	}
+	return result;
 }
 
 bool checkAndOr(char prev) noexcept
