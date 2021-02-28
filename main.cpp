@@ -4,6 +4,7 @@
 #include <QTextEdit>
 #include <QMessageBox>
 #include "source/KNF.h"
+#include "source/Validation.h"
 
 
 int main(int argc, char *argv[]) {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[]) {
 
     QObject::connect(button, &QPushButton::clicked, [&text](){
          std::string value = text->toPlainText().toStdString();
-         bool result = CheckKNF(value);
+         bool result = CheckKNF(reformatInput(value));
          QString res = result ? "correct" : "bad";
          QMessageBox::information(nullptr,"Answer", res);
     });
