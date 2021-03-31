@@ -39,6 +39,7 @@ bool CheckKNF(const std::string& str) noexcept
             conjunction.insert(left_count - right_count);
         }
     }
+	if (!conjunction.empty() && left_count == 0) return false;
     bool good_conjunction = conjunction.size() == 1;
     bool good_disjunction = disjunction.size() == 1 && *conjunction.cbegin() < *disjunction.cbegin();
     good_disjunction = good_disjunction ? good_disjunction : disjunction.empty();

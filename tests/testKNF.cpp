@@ -17,7 +17,7 @@ TEST(TestKNF, second)
 
 TEST(TestKNF, third)
 {
-    EXPECT_TRUE(CheckKNF(reformatInput("A/\\B")));
+    EXPECT_FALSE(CheckKNF(reformatInput("A/\\B")));
 }
 
 TEST(TestKNF, four)
@@ -37,7 +37,7 @@ TEST(TestKNF, six)
 
 TEST(TestKNF, seven)
 {
-    EXPECT_TRUE(CheckKNF(reformatInput("-B /\\ -C")));
+    EXPECT_FALSE(CheckKNF(reformatInput("-B /\\ -C")));
 }
 
 TEST(TestKNF, eight)

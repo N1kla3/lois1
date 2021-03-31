@@ -1,5 +1,3 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "readability-use-anyofallof"
 //
 // Created by nicola on 04/02/2021.
 //
